@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E626557E2BF644C700943FEB /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E626557D2BF644C700943FEB /* MainMenu.swift */; };
+		E62655802BF64BE100943FEB /* AddMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E626557F2BF64BE100943FEB /* AddMeal.swift */; };
+		E62655862BF709EC00943FEB /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62655852BF709EC00943FEB /* ChatView.swift */; };
+		E62655882BF70A0500943FEB /* LLMChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62655872BF70A0500943FEB /* LLMChatViewModel.swift */; };
+		E66633EB2BF9B0AD007B4FB0 /* MealDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66633EA2BF9B0AD007B4FB0 /* MealDetails.swift */; };
+		E66633ED2BF9E8C4007B4FB0 /* NutritionFacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66633EC2BF9E8C4007B4FB0 /* NutritionFacts.swift */; };
+		E66633F02BF9EA3E007B4FB0 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = E66633EF2BF9EA3E007B4FB0 /* Yams */; };
+		E66633F22BF9EA50007B4FB0 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = E66633F12BF9EA50007B4FB0 /* Yams */; };
+		E66633F52BF9F079007B4FB0 /* NutritionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66633F42BF9F079007B4FB0 /* NutritionUtils.swift */; };
+		E66633F72BF9F1D6007B4FB0 /* HealthKitConsentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66633F62BF9F1D6007B4FB0 /* HealthKitConsentPage.swift */; };
 		E6ED368D2BF4BF0A0096D119 /* NutriSayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED368C2BF4BF0A0096D119 /* NutriSayApp.swift */; };
 		E6ED368F2BF4BF0A0096D119 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED368E2BF4BF0A0096D119 /* ContentView.swift */; };
 		E6ED36912BF4BF0D0096D119 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6ED36902BF4BF0D0096D119 /* Assets.xcassets */; };
@@ -43,6 +53,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E626557D2BF644C700943FEB /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		E626557F2BF64BE100943FEB /* AddMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeal.swift; sourceTree = "<group>"; };
+		E62655852BF709EC00943FEB /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		E62655872BF70A0500943FEB /* LLMChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMChatViewModel.swift; sourceTree = "<group>"; };
+		E66633EA2BF9B0AD007B4FB0 /* MealDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetails.swift; sourceTree = "<group>"; };
+		E66633EC2BF9E8C4007B4FB0 /* NutritionFacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionFacts.swift; sourceTree = "<group>"; };
+		E66633F42BF9F079007B4FB0 /* NutritionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionUtils.swift; sourceTree = "<group>"; };
+		E66633F62BF9F1D6007B4FB0 /* HealthKitConsentPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitConsentPage.swift; sourceTree = "<group>"; };
+		E66633F82BF9F7C9007B4FB0 /* NutriSay Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NutriSay Watch App.entitlements"; sourceTree = "<group>"; };
 		E6ED36892BF4BF0A0096D119 /* NutriSay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriSay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6ED368C2BF4BF0A0096D119 /* NutriSayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriSayApp.swift; sourceTree = "<group>"; };
 		E6ED368E2BF4BF0A0096D119 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E66633F22BF9EA50007B4FB0 /* Yams in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,12 +87,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E66633F02BF9EA3E007B4FB0 /* Yams in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E626557A2BF6446C00943FEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E62655872BF70A0500943FEB /* LLMChatViewModel.swift */,
+				E66633EC2BF9E8C4007B4FB0 /* NutritionFacts.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E626557B2BF6447600943FEB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E62655852BF709EC00943FEB /* ChatView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E626557C2BF644A700943FEB /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				E626557D2BF644C700943FEB /* MainMenu.swift */,
+				E626557F2BF64BE100943FEB /* AddMeal.swift */,
+				E66633EA2BF9B0AD007B4FB0 /* MealDetails.swift */,
+				E66633F62BF9F1D6007B4FB0 /* HealthKitConsentPage.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		E66633F32BF9F065007B4FB0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E66633F42BF9F079007B4FB0 /* NutritionUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		E6ED36802BF4BF0A0096D119 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +170,11 @@
 		E6ED369D2BF4BF0D0096D119 /* NutriSay Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				E66633F82BF9F7C9007B4FB0 /* NutriSay Watch App.entitlements */,
+				E66633F32BF9F065007B4FB0 /* Utils */,
+				E626557A2BF6446C00943FEB /* Model */,
+				E626557C2BF644A700943FEB /* Pages */,
+				E626557B2BF6447600943FEB /* Views */,
 				E6ED369E2BF4BF0D0096D119 /* NutriSayApp.swift */,
 				E6ED36A02BF4BF0D0096D119 /* ContentView.swift */,
 				E6ED36A22BF4BF0E0096D119 /* Assets.xcassets */,
@@ -147,6 +209,9 @@
 				E6ED369C2BF4BF0D0096D119 /* PBXTargetDependency */,
 			);
 			name = NutriSay;
+			packageProductDependencies = (
+				E66633F12BF9EA50007B4FB0 /* Yams */,
+			);
 			productName = NutriSay;
 			productReference = E6ED36892BF4BF0A0096D119 /* NutriSay.app */;
 			productType = "com.apple.product-type.application";
@@ -164,6 +229,9 @@
 			dependencies = (
 			);
 			name = "NutriSay Watch App";
+			packageProductDependencies = (
+				E66633EF2BF9EA3E007B4FB0 /* Yams */,
+			);
 			productName = "NutriSay Watch App";
 			productReference = E6ED36992BF4BF0D0096D119 /* NutriSay Watch App.app */;
 			productType = "com.apple.product-type.application";
@@ -195,6 +263,9 @@
 				Base,
 			);
 			mainGroup = E6ED36802BF4BF0A0096D119;
+			packageReferences = (
+				E66633EE2BF9E929007B4FB0 /* XCRemoteSwiftPackageReference "Yams" */,
+			);
 			productRefGroup = E6ED368A2BF4BF0A0096D119 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -240,7 +311,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E62655802BF64BE100943FEB /* AddMeal.swift in Sources */,
 				E6ED36A12BF4BF0D0096D119 /* ContentView.swift in Sources */,
+				E62655862BF709EC00943FEB /* ChatView.swift in Sources */,
+				E66633EB2BF9B0AD007B4FB0 /* MealDetails.swift in Sources */,
+				E66633F72BF9F1D6007B4FB0 /* HealthKitConsentPage.swift in Sources */,
+				E66633ED2BF9E8C4007B4FB0 /* NutritionFacts.swift in Sources */,
+				E626557E2BF644C700943FEB /* MainMenu.swift in Sources */,
+				E66633F52BF9F079007B4FB0 /* NutritionUtils.swift in Sources */,
+				E62655882BF70A0500943FEB /* LLMChatViewModel.swift in Sources */,
 				E6ED369F2BF4BF0D0096D119 /* NutriSayApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "NutriSay Watch App/NutriSay Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NutriSay Watch App/Preview Content\"";
@@ -382,6 +462,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = NutriSay;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need access to read your nutrition data in app from HealthKit.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need access to sync your nutrition data in HealthKit.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = dev.bytebooster.NutriSay;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -396,7 +478,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
 		};
@@ -405,6 +487,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "NutriSay Watch App/NutriSay Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NutriSay Watch App/Preview Content\"";
@@ -412,6 +495,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = NutriSay;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need access to read your nutrition data in app from HealthKit.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need access to sync your nutrition data in HealthKit.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = dev.bytebooster.NutriSay;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -427,7 +512,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
@@ -449,7 +534,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,7 +567,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -529,6 +614,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E66633EE2BF9E929007B4FB0 /* XCRemoteSwiftPackageReference "Yams" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jpsim/Yams";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E66633EF2BF9EA3E007B4FB0 /* Yams */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E66633EE2BF9E929007B4FB0 /* XCRemoteSwiftPackageReference "Yams" */;
+			productName = Yams;
+		};
+		E66633F12BF9EA50007B4FB0 /* Yams */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E66633EE2BF9E929007B4FB0 /* XCRemoteSwiftPackageReference "Yams" */;
+			productName = Yams;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E6ED36812BF4BF0A0096D119 /* Project object */;
 }
