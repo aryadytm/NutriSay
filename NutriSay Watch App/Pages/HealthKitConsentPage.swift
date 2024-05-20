@@ -8,9 +8,14 @@ struct HealthKitConsentPage: View {
     var body: some View {
         VStack {
             if isAuthorized {
-                MainMenu()
+                MainMenuPage()
             } else {
+                Text("NutriSAY!")
+                    .font(.headline)
+                    .foregroundColor(.green)
+                    .padding(.bottom)
                 Text("HealthKit Access Required")
+                    .multilineTextAlignment(.center)
                 Button(action: requestAuthorization) {
                     Text("Grant Access")
                 }

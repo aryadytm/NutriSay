@@ -9,7 +9,8 @@ import Foundation
 import HealthKit
 
 public class NutritionUtils {
-    static func logNutritionFactsToHealthKit(_ facts: NutritionFacts) {
+    
+    static func logNutritionFactsToHealthKit(_ facts: Nutrition) {
         let healthStore = HKHealthStore()
         
         let nutritionTypes: [HKQuantityTypeIdentifier: Double] = [
@@ -81,4 +82,5 @@ public class NutritionUtils {
             }
         }
     }
+    
 }

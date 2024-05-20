@@ -8,7 +8,7 @@
 import Foundation
 import Yams
 
-struct NutritionFacts {
+struct Nutrition : Codable {
     var energyConsumedKcal: Double = 0
     var fatTotalG: Double = 0
     var fatPolyunsaturatedG: Double = 0
@@ -48,17 +48,21 @@ struct NutritionFacts {
     var potassiumMg: Double = 0
     var caffeineMg: Double = 0
     var waterL: Double = 0
-    var yamlDict: [String: Any] = [:]
+//    var yamlDict: [String: Any] = [:]
     
-    static func fromYamlString(_ yamlString: String) -> NutritionFacts? {
+    static func getFormattedUnit(value: Double, unit: String) -> String {
+        return value == floor(value) ? "\(Int(value)) \(unit)" : String(format: "%.1f \(unit)", value)
+    }
+    
+    static func fromYamlString(_ yamlString: String) -> Nutrition? {
         guard let yaml = try? Yams.load(yaml: yamlString) as? [String: Any] else {
             return nil
         }
         
         print(yaml)
         
-        var facts = NutritionFacts()
-        facts.yamlDict = yaml
+        var facts = Nutrition()
+//        facts.yamlDict = yaml
         facts.energyConsumedKcal = Double("\(yaml["energyConsumedKcal"] ?? 0)") ?? 0
         facts.fatTotalG = Double("\(yaml["fatTotalG"] ?? 0)") ?? 0
         facts.fatPolyunsaturatedG = Double("\(yaml["fatPolyunsaturatedG"] ?? 0)") ?? 0

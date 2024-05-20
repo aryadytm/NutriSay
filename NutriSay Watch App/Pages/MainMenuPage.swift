@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-struct MainMenu: View {
+struct MainMenuPage: View {
     
     var body: some View {
         NavigationView {
             VStack {
                 Text("NutriSAY!")
+                    .font(.headline)
+                    .foregroundStyle(.green)
                 
-                NavigationLink(destination: AddMeal()) {
+                NavigationLink(destination: AddMealPage()) {
                     Text("Add Meal")
                 }
                 
@@ -27,5 +29,5 @@ struct MainMenu: View {
 }
 
 #Preview {
-    MainMenu()
+    MainMenuPage()
 }

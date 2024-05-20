@@ -7,24 +7,28 @@
 
 import SwiftUI
 import HealthKit
+import SwiftData
 
 enum AddMealPageState {
     case inputMeal
-    case checkIcon
-    case nutritionFacts
+    case success
+    case showMealDetails
 }
 
-struct AddMeal: View {
+struct AddMealPage: View {
+    @Environment(\.modelContext) var modelContext
+    @Bindable var meal: Meal = Meal.getEmpty()
+    
     @State var clarificationText: String = "Enter your meal"
     @State var mealTextField: String = "100g fried chicken breast"
     @State var mealTextFieldHint: String = "Meal Info"
     @State var mealStatement: String = ""
-    @State var nutritionFacts: NutritionFacts = NutritionFacts()
+    
     @State var isLoading: Bool = false
-    @State var hasFinished: Bool = false
+    @State var isFirstLoad: Bool = true
+    
     @State var pageState: AddMealPageState = .inputMeal
-
-    @State private var isFirstLoad: Bool = true
+    @State var nutritionFacts: Nutrition = Nutrition()
     
     @StateObject private var clarifierLLMViewModel = LLMChatViewModel(
         identifier: LLMIdentifier.mealClarifier.rawValue,
@@ -49,15 +53,12 @@ struct AddMeal: View {
                     isLoading: $isLoading,
                     nextAction: next
                 )
-            case .checkIcon:
+            case .success:
                 FinishedView()
                     .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            pageState = .nutritionFacts
-                        }
                     }
-            case .nutritionFacts:
-                NutritionFactsView()
+            case .showMealDetails:
+                MealDetailsPage(meal: meal)
             }
         }
         .onReceive(clarifierLLMViewModel.$response, perform: handleClarificationLLMResponse)
@@ -75,12 +76,14 @@ struct AddMeal: View {
             clarificationText = response.replacingOccurrences(of: "/clarification", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
             mealTextField = ""
             mealTextFieldHint = "Meal Details"
-        } else if response.starts(with: "/finish") {
+        }
+        else if response.starts(with: "/finish") {
             mealStatement = response.replacingOccurrences(of: "/finish", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
             mealTextField = ""
             mealTextFieldHint = ""
-            hasFinished = true
-            pageState = .checkIcon
+            
+            pageState = .success
+            
             nutritionLLMViewModel.sendMessage(query: mealStatement)
         }
     }
@@ -88,12 +91,23 @@ struct AddMeal: View {
     private func handleNutritionLLMResponse(_ response: String) {
         guard !response.isEmpty else { return }
         isLoading = false
-        if let facts = NutritionFacts.fromYamlString(response) {
+        
+        if let facts = Nutrition.fromYamlString(response) {
             nutritionFacts = facts
             print(response)
             print(nutritionFacts)
             NutritionUtils.logNutritionFactsToHealthKit(facts)
-            hasFinished = true
+            
+            // TODO: Update meal state then show Meal page
+            meal.mealName = mealStatement
+            meal.nutrition = nutritionFacts
+            meal.consumedDate = Date()
+            
+            modelContext.insert(meal)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                pageState = .showMealDetails
+            }
         }
     }
     
@@ -162,12 +176,9 @@ struct InputMealView: View {
     }
 }
 
-struct NutritionFactsView: View {
-    var body: some View {
-        Text("Nutrition Facts will be displayed here.")
-    }
-}
-
 #Preview {
-    AddMeal()
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: Meal.self, configurations: config)
+    return AddMealPage()
+        .modelContainer(container)
 }
