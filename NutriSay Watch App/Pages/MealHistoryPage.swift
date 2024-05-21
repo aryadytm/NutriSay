@@ -28,7 +28,7 @@ struct MealHistoryPage: View {
                     }
                 }
             }
-            .padding(.horizontal)
+//            .padding(.horizontal)
             .navigationTitle("Meal History")
         }
         

@@ -10,9 +10,9 @@ import SwiftData
 
 struct MainMenuPage: View {
     
-    @State var calorieProgress: CGFloat = 0.0 // Energy
+    @State var calorieProgress: CGFloat = 0.9 // Energy
     @State var proteinProgress: CGFloat = 0.5 // Protein
-    @State var carbohydrateProgress: CGFloat = 0.0 // Carbs
+    @State var carbohydrateProgress: CGFloat = 0.30 // Carbs
     
     var targetEnergyKkal: Double = 1800
     var targetProteinG: Double = 90
@@ -109,16 +109,16 @@ struct NutrientBar: View {
         VStack(alignment: .leading, spacing: 1) {
             HStack {
                 Text(label)
-                    .font(.system(size: 14))
+                    .font(.system(size: 12))
                     .opacity(0.5)
                 Spacer()
                 Text("\(Int(currentValue)) / \(Int(targetValue))")
                     .foregroundStyle(colorGradientStart)
-                    .font(.system(size: 14))
+                    .font(.system(size: 12))
                     .offset(x: 3)
                 Text(unit)
                     .foregroundStyle(colorGradientStart)
-                    .font(.system(size: 11))
+                    .font(.system(size: 10))
                     .offset(y: 1)
             }
             
