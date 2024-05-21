@@ -73,6 +73,15 @@ struct AddMealPage: View {
                 MealDetailsPage(meal: meal)
             }
         }
+        .padding(.horizontal)
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: [Color.green.opacity(0.01), Color.green.opacity(0.0)]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .edgesIgnoringSafeArea(.all)
+        )
         .onReceive(clarifierLLMViewModel.$response, perform: handleClarificationLLMResponse)
         .onReceive(nutritionLLMViewModel.$response, perform: handleNutritionLLMResponse)
         .onAppear(perform: handleOnAppear)
@@ -195,6 +204,7 @@ struct InputMealView: View {
             }
             .disabled(isLoading)
         }
+        
     }
 }
 

@@ -18,6 +18,7 @@
 		E66633F52BF9F079007B4FB0 /* NutritionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66633F42BF9F079007B4FB0 /* NutritionUtils.swift */; };
 		E66633F72BF9F1D6007B4FB0 /* HealthKitConsentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66633F62BF9F1D6007B4FB0 /* HealthKitConsentPage.swift */; };
 		E699D9682BFB0DB3004FB8DC /* MealHistoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699D9672BFB0DB3004FB8DC /* MealHistoryPage.swift */; };
+		E6D0B1372BFCE116002800D1 /* GradientPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D0B1362BFCE116002800D1 /* GradientPage.swift */; };
 		E6ED368D2BF4BF0A0096D119 /* NutriSayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED368C2BF4BF0A0096D119 /* NutriSayApp.swift */; };
 		E6ED368F2BF4BF0A0096D119 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED368E2BF4BF0A0096D119 /* ContentView.swift */; };
 		E6ED36912BF4BF0D0096D119 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6ED36902BF4BF0D0096D119 /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		E66633F62BF9F1D6007B4FB0 /* HealthKitConsentPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitConsentPage.swift; sourceTree = "<group>"; };
 		E66633F82BF9F7C9007B4FB0 /* NutriSay Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NutriSay Watch App.entitlements"; sourceTree = "<group>"; };
 		E699D9672BFB0DB3004FB8DC /* MealHistoryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHistoryPage.swift; sourceTree = "<group>"; };
+		E6D0B1362BFCE116002800D1 /* GradientPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientPage.swift; sourceTree = "<group>"; };
 		E6ED36892BF4BF0A0096D119 /* NutriSay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriSay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6ED368C2BF4BF0A0096D119 /* NutriSayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriSayApp.swift; sourceTree = "<group>"; };
 		E6ED368E2BF4BF0A0096D119 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				E6EF7B0B2BFC487E009D5F6B /* RingView.swift */,
+				E6D0B1362BFCE116002800D1 /* GradientPage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				E6ED36A12BF4BF0D0096D119 /* ContentView.swift in Sources */,
 				E699D9682BFB0DB3004FB8DC /* MealHistoryPage.swift in Sources */,
 				E66633EB2BF9B0AD007B4FB0 /* MealDetailsPage.swift in Sources */,
+				E6D0B1372BFCE116002800D1 /* GradientPage.swift in Sources */,
 				E624D4CD2BFAEFC500BC201B /* Meal.swift in Sources */,
 				E6EF7B0C2BFC487E009D5F6B /* RingView.swift in Sources */,
 				E6EF7B0E2BFC679A009D5F6B /* MainMenuPageRing.swift in Sources */,
