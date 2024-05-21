@@ -20,7 +20,7 @@ struct AddMealPage: View {
     @Bindable var meal: Meal = Meal.getEmpty()
     
     @State var clarificationText: String = "Enter your meal"
-    @State var mealTextField: String = "100g fried chicken breast"
+    @State var mealTextField: String = ""
     @State var mealTextFieldHint: String = "Meal Info"
     @State var mealStatement: String = ""
     
@@ -42,6 +42,20 @@ struct AddMealPage: View {
         isConversation: false
     )
     
+    let mealExamples = [
+        "One cup of coffee",
+        "One cup of tea",
+        "Milk tea 250g",
+        "Fried chicken",
+        "Beef steak",
+        "Pork rice",
+        "Wagyu tokusen 150g",
+        "Caesar salad",
+        "Fried rice",
+        "Orange juice",
+        "Vitamin C",
+    ]
+    
     var body: some View {
         ScrollView {
             switch pageState {
@@ -54,9 +68,7 @@ struct AddMealPage: View {
                     nextAction: next
                 )
             case .success:
-                FinishedView()
-                    .onAppear {
-                    }
+                SuccessView()
             case .showMealDetails:
                 MealDetailsPage(meal: meal)
             }
@@ -68,46 +80,54 @@ struct AddMealPage: View {
     
     private func handleClarificationLLMResponse(_ response: String) {
         guard !response.isEmpty else { return }
-        isLoading = false
 
         print("===============================")
         
         if response.starts(with: "/clarification") {
+            isLoading = false
             clarificationText = response.replacingOccurrences(of: "/clarification", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
             mealTextField = ""
             mealTextFieldHint = "Meal Details"
         }
         else if response.starts(with: "/finish") {
             mealStatement = response.replacingOccurrences(of: "/finish", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
-            mealTextField = ""
-            mealTextFieldHint = ""
-            
-            pageState = .success
-            
+
             nutritionLLMViewModel.sendMessage(query: mealStatement)
         }
     }
     
     private func handleNutritionLLMResponse(_ response: String) {
         guard !response.isEmpty else { return }
-        isLoading = false
         
         if let facts = Nutrition.fromYamlString(response) {
             nutritionFacts = facts
-            print(response)
-            print(nutritionFacts)
+            
+//            print(response)
+//            print(nutritionFacts)
+            
             NutritionUtils.logNutritionFactsToHealthKit(facts)
             
-            // TODO: Update meal state then show Meal page
-            meal.mealName = mealStatement
-            meal.nutrition = nutritionFacts
-            meal.consumedDate = Date()
+            let newMeal = Meal(
+                mealName: mealStatement,
+                nutrition: nutritionFacts,
+                consumedDate: Date()
+            )
             
-            modelContext.insert(meal)
+            modelContext.insert(newMeal)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.meal.mealName = newMeal.mealName
+            self.meal.nutrition = newMeal.nutrition
+            self.meal.consumedDate = newMeal.consumedDate
+
+            pageState = .success
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 pageState = .showMealDetails
+                isLoading = false
+                mealTextField = ""
+                mealTextFieldHint = ""
             }
+
         }
     }
     
@@ -116,6 +136,7 @@ struct AddMealPage: View {
             clarifierLLMViewModel.resetConversation()
             isFirstLoad = false
         }
+        mealTextFieldHint = mealExamples.randomElement() ?? "Meal Info"
     }
     
     private func next() {
@@ -127,7 +148,7 @@ struct AddMealPage: View {
     }
 }
 
-struct FinishedView: View {
+struct SuccessView: View {
     var body: some View {
         Spacer()
         VStack {
@@ -172,6 +193,7 @@ struct InputMealView: View {
                     Text("Next")
                 }
             }
+            .disabled(isLoading)
         }
     }
 }

@@ -10,7 +10,6 @@
 		E624D4CD2BFAEFC500BC201B /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E624D4CC2BFAEFC500BC201B /* Meal.swift */; };
 		E626557E2BF644C700943FEB /* MainMenuPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E626557D2BF644C700943FEB /* MainMenuPage.swift */; };
 		E62655802BF64BE100943FEB /* AddMealPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E626557F2BF64BE100943FEB /* AddMealPage.swift */; };
-		E62655862BF709EC00943FEB /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62655852BF709EC00943FEB /* ChatView.swift */; };
 		E62655882BF70A0500943FEB /* LLMChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62655872BF70A0500943FEB /* LLMChatViewModel.swift */; };
 		E66633EB2BF9B0AD007B4FB0 /* MealDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66633EA2BF9B0AD007B4FB0 /* MealDetailsPage.swift */; };
 		E66633ED2BF9E8C4007B4FB0 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66633EC2BF9E8C4007B4FB0 /* Nutrition.swift */; };
@@ -28,6 +27,8 @@
 		E6ED36A12BF4BF0D0096D119 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED36A02BF4BF0D0096D119 /* ContentView.swift */; };
 		E6ED36A32BF4BF0E0096D119 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6ED36A22BF4BF0E0096D119 /* Assets.xcassets */; };
 		E6ED36A62BF4BF0E0096D119 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6ED36A52BF4BF0E0096D119 /* Preview Assets.xcassets */; };
+		E6EF7B0C2BFC487E009D5F6B /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EF7B0B2BFC487E009D5F6B /* RingView.swift */; };
+		E6EF7B0E2BFC679A009D5F6B /* MainMenuPageRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EF7B0D2BFC679A009D5F6B /* MainMenuPageRing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,6 @@
 		E624D4CC2BFAEFC500BC201B /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		E626557D2BF644C700943FEB /* MainMenuPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuPage.swift; sourceTree = "<group>"; };
 		E626557F2BF64BE100943FEB /* AddMealPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealPage.swift; sourceTree = "<group>"; };
-		E62655852BF709EC00943FEB /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		E62655872BF70A0500943FEB /* LLMChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMChatViewModel.swift; sourceTree = "<group>"; };
 		E66633EA2BF9B0AD007B4FB0 /* MealDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsPage.swift; sourceTree = "<group>"; };
 		E66633EC2BF9E8C4007B4FB0 /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
@@ -76,6 +76,8 @@
 		E6ED36A02BF4BF0D0096D119 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E6ED36A22BF4BF0E0096D119 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6ED36A52BF4BF0E0096D119 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E6EF7B0B2BFC487E009D5F6B /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
+		E6EF7B0D2BFC679A009D5F6B /* MainMenuPageRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuPageRing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +112,7 @@
 		E626557B2BF6447600943FEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E62655852BF709EC00943FEB /* ChatView.swift */,
+				E6EF7B0B2BFC487E009D5F6B /* RingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				E626557D2BF644C700943FEB /* MainMenuPage.swift */,
+				E6EF7B0D2BFC679A009D5F6B /* MainMenuPageRing.swift */,
 				E626557F2BF64BE100943FEB /* AddMealPage.swift */,
 				E66633EA2BF9B0AD007B4FB0 /* MealDetailsPage.swift */,
 				E66633F62BF9F1D6007B4FB0 /* HealthKitConsentPage.swift */,
@@ -327,10 +330,11 @@
 			files = (
 				E62655802BF64BE100943FEB /* AddMealPage.swift in Sources */,
 				E6ED36A12BF4BF0D0096D119 /* ContentView.swift in Sources */,
-				E62655862BF709EC00943FEB /* ChatView.swift in Sources */,
 				E699D9682BFB0DB3004FB8DC /* MealHistoryPage.swift in Sources */,
 				E66633EB2BF9B0AD007B4FB0 /* MealDetailsPage.swift in Sources */,
 				E624D4CD2BFAEFC500BC201B /* Meal.swift in Sources */,
+				E6EF7B0C2BFC487E009D5F6B /* RingView.swift in Sources */,
+				E6EF7B0E2BFC679A009D5F6B /* MainMenuPageRing.swift in Sources */,
 				E66633F72BF9F1D6007B4FB0 /* HealthKitConsentPage.swift in Sources */,
 				E66633ED2BF9E8C4007B4FB0 /* Nutrition.swift in Sources */,
 				E626557E2BF644C700943FEB /* MainMenuPage.swift in Sources */,

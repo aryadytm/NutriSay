@@ -28,11 +28,38 @@ struct MealDetailsPage: View {
                     .lineLimit(5)
                     .padding(.top)
                 
-                NutritionRow(label: "Calories", value: meal.nutrition.energyConsumedKcal, unit: "kcal")
-                NutritionRow(label: "Carbohydrates", value: meal.nutrition.carbohydratesG, unit: "g")
-                NutritionRow(label: "Protein", value: meal.nutrition.proteinG, unit: "g")
-                NutritionRow(label: "Fat (Total)", value: meal.nutrition.fatTotalG, unit: "g")
+                NutritionRowWithImage(
+                    label: "Calories",
+                    value: meal.nutrition.energyConsumedKcal,
+                    unit: "kcal",
+                    image: "bolt.fill",
+                    imageColor: .yellow
+                )
                 
+                NutritionRowWithImage(
+                    label: "Protein",
+                    value: meal.nutrition.proteinG,
+                    unit: "g",
+                    image: "dumbbell.fill",
+                    imageColor: .blue
+                )
+                
+                NutritionRowWithImage(
+                    label: "Carbohydrates",
+                    value: meal.nutrition.carbohydratesG,
+                    unit: "g",
+                    image: "cube.fill",
+                    imageColor: .purple
+                )
+
+                NutritionRowWithImage(
+                    label: "Fat (Total)",
+                    value: meal.nutrition.fatTotalG,
+                    unit: "g",
+                    image: "drop.halffull",
+                    imageColor: .orange
+                )
+
                 Text("DETAILED NUTRIENTS")
                     .font(.caption)
                     .fontWeight(.semibold)
@@ -151,6 +178,7 @@ struct MealDetailsPage: View {
                 
                 Spacer()
             }
+            .navigationTitle("Meal Nutrients")
             .padding()
         }
     }
@@ -164,13 +192,35 @@ struct NutritionRow: View {
     var body: some View {
         HStack {
             Text(label)
-                .font(.caption)
+                .font(.caption2)
             Spacer()
             Text(Nutrition.getFormattedUnit(value: value, unit: unit))
-                .font(.caption)
+                .font(.caption2)
         }
     }
 }
+
+struct NutritionRowWithImage: View {
+    var label: String
+    var value: Double
+    var unit: String
+    var image: String
+    var imageColor: Color
+    
+    var body: some View {
+        HStack {
+            Text(label)
+                .font(.caption2)
+            Image(systemName: image)
+                .foregroundStyle(imageColor)
+            Spacer()
+            Text(Nutrition.getFormattedUnit(value: value, unit: unit))
+                .font(.caption2)
+        }
+    }
+}
+
+
 struct MealDetails_Previews: PreviewProvider {
     static var previews: some View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
