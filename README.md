@@ -4,7 +4,7 @@ NutriSAY! is a Nutrition Tracking App that uses AI & HealthKit for watchOS.
 Just say what you just eat, and the AI will analyze the nutrition, very detailed, which is every nutrient available in HealthKit. 
 You'll never again spend time finding a meal that doesn't exist in the database of other Nutrition Tracking Apps.
 
-![Nutrisay Screenshot](screenshot_nutrisay.png)
+![Nutrisay Screenshot](screenshot_nutrisay_2.png)
 
 ## Features
 
