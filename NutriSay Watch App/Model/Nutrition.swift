@@ -48,21 +48,20 @@ struct Nutrition : Codable {
     var potassiumMg: Double = 0
     var caffeineMg: Double = 0
     var waterL: Double = 0
-//    var yamlDict: [String: Any] = [:]
     
     static func getFormattedUnit(value: Double, unit: String) -> String {
         return value == floor(value) ? "\(Int(value)) \(unit)" : String(format: "%.1f \(unit)", value)
     }
     
-    static func fromYamlString(_ yamlString: String) -> Nutrition? {
+    static func fromYamlString(yamlString: String, meal: Meal) -> Nutrition? {
         guard let yaml = try? Yams.load(yaml: yamlString) as? [String: Any] else {
             return nil
         }
-        
-        print(yaml)
+                
+        print(yamlString)
         
         var facts = Nutrition()
-//        facts.yamlDict = yaml
+        
         facts.energyConsumedKcal = Double("\(yaml["energyConsumedKcal"] ?? 0)") ?? 0
         facts.fatTotalG = Double("\(yaml["fatTotalG"] ?? 0)") ?? 0
         facts.fatPolyunsaturatedG = Double("\(yaml["fatPolyunsaturatedG"] ?? 0)") ?? 0
@@ -102,6 +101,9 @@ struct Nutrition : Codable {
         facts.potassiumMg = Double("\(yaml["potassiumMg"] ?? 0)") ?? 0
         facts.caffeineMg = Double("\(yaml["caffeineMg"] ?? 0)") ?? 0
         facts.waterL = Double("\(yaml["waterL"] ?? 0)") ?? 0
+        
+        let emoji = yaml["emoji"] as? String ?? "🍴"
+        meal.emoji = emoji
         
         return facts
     }

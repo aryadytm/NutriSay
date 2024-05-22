@@ -10,10 +10,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Image("applogo")
+                .resizable()
+                .frame(width: 60, height: 60)
+                .cornerRadius(16)
+                .padding()
+            Text("Please open NutriSAY! in your watchOS device.")
         }
         .padding()
     }

@@ -10,17 +10,22 @@ import SwiftData
 
 struct MainMenuPage: View {
     
-    @State var calorieProgress: CGFloat = 0.9 // Energy
-    @State var proteinProgress: CGFloat = 0.5 // Protein
-    @State var carbohydrateProgress: CGFloat = 0.30 // Carbs
-    
+    @State var calorieProgress: CGFloat = 0.0 // Energy
+    @State var proteinProgress: CGFloat = 0.0 // Protein
+    @State var carbohydrateProgress: CGFloat = 0.0 // Carbs
+    @State var isPresentingModalView: Bool = false {
+        didSet {
+            if !isPresentingModalView {
+                updateData()
+            }
+        }
+    }
+
     var targetEnergyKkal: Double = 1800
     var targetProteinG: Double = 90
     var targetCarbs: Double = 60
     
     @Query var meals: [Meal]
-    
-    @State var isPresentingModalView: Bool = false
     
     var body: some View {
         NavigationView {
@@ -66,19 +71,7 @@ struct MainMenuPage: View {
                 .padding(.horizontal)
             }
             .onAppear {
-                // Query today's meals then calculate the nutrition progress
-                let todayMeals = meals.filter { Calendar.current.isDateInToday($0.consumedDate) }
-                let totalNutrition = todayMeals.reduce(Nutrition()) { (result, meal) -> Nutrition in
-                    var newResult = result
-                    newResult.energyConsumedKcal += meal.nutrition.energyConsumedKcal
-                    newResult.proteinG += meal.nutrition.proteinG
-                    newResult.carbohydratesG += meal.nutrition.carbohydratesG
-                    return newResult
-                }
-                
-                calorieProgress = CGFloat(totalNutrition.energyConsumedKcal / targetEnergyKkal)
-                proteinProgress = CGFloat(totalNutrition.proteinG / targetProteinG)
-                carbohydrateProgress = CGFloat(totalNutrition.carbohydratesG / targetCarbs)
+                updateData()
             }
             .background(
                 LinearGradient(
@@ -89,10 +82,28 @@ struct MainMenuPage: View {
                 .edgesIgnoringSafeArea(.all)
             )
             .fullScreenCover(isPresented: $isPresentingModalView) {
-                AddMealPage()
+                AddMealPage(onUpdateMealDb: updateData)
             }
         }
     }
+    
+    func updateData() {
+//        return
+        // Query today's meals then calculate the nutrition progress
+        let todayMeals = meals.filter { Calendar.current.isDateInToday($0.consumedDate) }
+        let totalNutrition = todayMeals.reduce(Nutrition()) { (result, meal) -> Nutrition in
+            var newResult = result
+            newResult.energyConsumedKcal += meal.nutrition.energyConsumedKcal
+            newResult.proteinG += meal.nutrition.proteinG
+            newResult.carbohydratesG += meal.nutrition.carbohydratesG
+            return newResult
+        }
+        
+        calorieProgress = CGFloat(totalNutrition.energyConsumedKcal / targetEnergyKkal)
+        proteinProgress = CGFloat(totalNutrition.proteinG / targetProteinG)
+        carbohydrateProgress = CGFloat(totalNutrition.carbohydratesG / targetCarbs)
+    }
+    
 }
 
 struct NutrientBar: View {
@@ -122,7 +133,6 @@ struct NutrientBar: View {
                     .offset(y: 1)
             }
             
-            
             ZStack {
                 GeometryReader { geometry in
                     ZStack(alignment: .leading) {
@@ -135,10 +145,10 @@ struct NutrientBar: View {
                                 startPoint: .leading,
                                 endPoint: .trailing
                             ))
-                            .frame(width: min(geometry.size.width * progress, geometry.size.width), height: 20)
+                            .frame(width: min(geometry.size.width * (progress < 0.1 ? 0 : progress), geometry.size.width * 0.98), height: 20)
                     }
                     .frame(height: 20)
-                    .padding(.leading, 5.5)
+                    .padding(.leading, 3.25)
                     
                     HStack {
                         VStack(alignment: .leading) {
@@ -158,6 +168,40 @@ struct NutrientBar: View {
                 .frame(height: 20)
             }
         }
+    }
+}
+
+struct CustomRoundedRectangle: Shape {
+    var cornerRadius: CGFloat
+    
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        
+        let width = rect.width
+        let height = rect.height
+        
+        // Move to the top-left corner
+        path.move(to: CGPoint(x: 0, y: 0))
+        
+        // Draw line to the top-right corner
+        path.addLine(to: CGPoint(x: width - cornerRadius, y: 0))
+        
+        // Draw top-right rounded corner
+        path.addArc(center: CGPoint(x: width - cornerRadius, y: cornerRadius), radius: cornerRadius, startAngle: Angle.degrees(-90), endAngle: Angle.degrees(0), clockwise: false)
+        
+        // Draw line to the bottom-right corner
+        path.addLine(to: CGPoint(x: width, y: height - cornerRadius))
+        
+        // Draw bottom-right rounded corner
+        path.addArc(center: CGPoint(x: width - cornerRadius, y: height - cornerRadius), radius: cornerRadius, startAngle: Angle.degrees(0), endAngle: Angle.degrees(90), clockwise: false)
+        
+        // Draw line to the bottom-left corner
+        path.addLine(to: CGPoint(x: 0, y: height))
+        
+        // Close the path
+        path.closeSubpath()
+        
+        return path
     }
 }
 

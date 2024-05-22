@@ -16,8 +16,10 @@ enum AddMealPageState {
 }
 
 struct AddMealPage: View {
+    let onUpdateMealDb: () -> Void
+    
     @Environment(\.modelContext) var modelContext
-    @Bindable var meal: Meal = Meal.getEmpty()
+    @State var meal: Meal = Meal.getEmpty()
     
     @State var clarificationText: String = "Enter your meal"
     @State var mealTextField: String = ""
@@ -69,8 +71,10 @@ struct AddMealPage: View {
                 )
             case .success:
                 SuccessView()
+                    .transition(.opacity)
+                    .animation(.easeInOut(duration: 0.5), value: pageState)
             case .showMealDetails:
-                MealDetailsPage(meal: meal)
+                MealDetailsPage(fromAddMealPage: true, meal: meal)
             }
         }
         .padding(.horizontal)
@@ -89,7 +93,7 @@ struct AddMealPage: View {
     
     private func handleClarificationLLMResponse(_ response: String) {
         guard !response.isEmpty else { return }
-
+        
         print("===============================")
         
         if response.starts(with: "/clarification") {
@@ -100,43 +104,56 @@ struct AddMealPage: View {
         }
         else if response.starts(with: "/finish") {
             mealStatement = response.replacingOccurrences(of: "/finish", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
-
+            
             nutritionLLMViewModel.sendMessage(query: mealStatement)
+        }
+        else {
+            isLoading = false
+            clarificationText = response
         }
     }
     
     private func handleNutritionLLMResponse(_ response: String) {
         guard !response.isEmpty else { return }
         
-        if let facts = Nutrition.fromYamlString(response) {
+        let newMeal = Meal.getEmpty()
+        
+        if let facts = Nutrition.fromYamlString(yamlString: response, meal: newMeal) {
             nutritionFacts = facts
             
 //            print(response)
 //            print(nutritionFacts)
             
-            NutritionUtils.logNutritionFactsToHealthKit(facts)
-            
-            let newMeal = Meal(
-                mealName: mealStatement,
-                nutrition: nutritionFacts,
-                consumedDate: Date()
-            )
+            newMeal.mealName = mealStatement
+            newMeal.nutrition = facts
+            newMeal.consumedDate = Date()
             
             modelContext.insert(newMeal)
-            
-            self.meal.mealName = newMeal.mealName
-            self.meal.nutrition = newMeal.nutrition
-            self.meal.consumedDate = newMeal.consumedDate
+            onUpdateMealDb()
 
-            pageState = .success
+            self.meal = newMeal
+//            self.meal.mealName = newMeal.mealName
+//            self.meal.nutrition = newMeal.nutrition
+//            self.meal.consumedDate = newMeal.consumedDate
+//            self.meal.emoji = newMeal.emoji
+            
+            NutritionUtils.logNutritionFactsToHealthKit(facts)
+            
+            withAnimation {
+                pageState = .success
+            }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                pageState = .showMealDetails
+                withAnimation {
+                    pageState = .showMealDetails
+                }
                 isLoading = false
                 mealTextField = ""
                 mealTextFieldHint = ""
             }
-
+        } else {
+            isLoading = false
+            clarificationText = "Error: Failed to analyze nutrition."
         }
     }
     
@@ -167,7 +184,7 @@ struct SuccessView: View {
                 .frame(width: 100, height: 100)
                 .foregroundColor(.green)
                 .padding(.top)
-                .transition(.symbolEffect(.appear))
+                .transition(.scale)
             Spacer()
         }
         Spacer()
@@ -211,6 +228,6 @@ struct InputMealView: View {
 #Preview {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: Meal.self, configurations: config)
-    return AddMealPage()
+    return AddMealPage(onUpdateMealDb: {})
         .modelContainer(container)
 }

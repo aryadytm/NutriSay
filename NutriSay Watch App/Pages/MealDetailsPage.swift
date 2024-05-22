@@ -2,12 +2,24 @@ import SwiftUI
 import SwiftData
 
 struct MealDetailsPage: View {
+    var fromAddMealPage: Bool = false
+    
     @Environment(\.modelContext) var modelContext
+    @Environment(\.dismiss) var dismiss
     @Bindable var meal: Meal
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 4) {
+                
+                ZStack {
+                    Image(systemName: "square.fill")
+                        .resizable()
+                        .frame(width: 35, height: 35)
+                        .foregroundStyle(.white.opacity(0.1))
+                    Text(meal.emoji)
+                        .scaleEffect(1.25)
+                }
                 Text(meal.mealName)
                     .font(.headline)
                     .foregroundColor(Color.white)
@@ -15,7 +27,7 @@ struct MealDetailsPage: View {
                     .lineLimit(5)
                 
                 Text(meal.getDateString())
-                    .font(.caption)
+                    .font(.caption2)
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.leading)
                     .opacity(0.50)
@@ -68,6 +80,7 @@ struct MealDetailsPage: View {
                     .lineLimit(5)
                     .padding(.top)
                 
+                
                 if meal.nutrition.fatPolyunsaturatedG != 0 {
                     NutritionRow(label: "Polyunsaturated Fat", value: meal.nutrition.fatPolyunsaturatedG, unit: "g")
                 }
@@ -77,6 +90,9 @@ struct MealDetailsPage: View {
                 if meal.nutrition.fatSaturatedG != 0 {
                     NutritionRow(label: "Saturated Fat", value: meal.nutrition.fatSaturatedG, unit: "g")
                 }
+                
+                NutritionRow(label: "Sugar", value: meal.nutrition.sugarG, unit: "g")
+
                 if meal.nutrition.cholesterolMg != 0 {
                     NutritionRow(label: "Cholesterol", value: meal.nutrition.cholesterolMg, unit: "mg")
                 }
@@ -86,9 +102,6 @@ struct MealDetailsPage: View {
 
                 if meal.nutrition.fiberG != 0 {
                     NutritionRow(label: "Fiber", value: meal.nutrition.fiberG, unit: "g")
-                }
-                if meal.nutrition.sugarG != 0 {
-                    NutritionRow(label: "Sugar", value: meal.nutrition.sugarG, unit: "g")
                 }
 
                 if meal.nutrition.vitaminAUg != 0 {
@@ -176,12 +189,38 @@ struct MealDetailsPage: View {
                     NutritionRow(label: "Water", value: meal.nutrition.waterL, unit: "L")
                 }
                 
+                if true {
+                    HStack {
+                        Spacer()
+                        ZStack {
+                            Image(systemName: "circle.fill")
+                                .resizable()
+                                .frame(width: 35, height: 35)
+                                .foregroundStyle(.red.opacity(0.25))
+                            Image(systemName: "trash.fill")
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                                .foregroundStyle(.red.opacity(1))
+                        }
+                        .padding(.top)
+                        .onTapGesture {
+                            deleteMeal()
+                        }
+                    }
+                }
+                
                 Spacer()
             }
             .navigationTitle("Meal Nutrients")
             .padding()
         }
     }
+    
+    func deleteMeal() {
+        modelContext.delete(meal)
+        dismiss()
+    }
+    
 }
 
 struct NutritionRow: View {

@@ -23,7 +23,7 @@
 		E6ED368F2BF4BF0A0096D119 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED368E2BF4BF0A0096D119 /* ContentView.swift */; };
 		E6ED36912BF4BF0D0096D119 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6ED36902BF4BF0D0096D119 /* Assets.xcassets */; };
 		E6ED36942BF4BF0D0096D119 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6ED36932BF4BF0D0096D119 /* Preview Assets.xcassets */; };
-		E6ED369A2BF4BF0D0096D119 /* NutriSay Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E6ED36992BF4BF0D0096D119 /* NutriSay Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E6ED369A2BF4BF0D0096D119 /* NutriSAY.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E6ED36992BF4BF0D0096D119 /* NutriSAY.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E6ED369F2BF4BF0D0096D119 /* NutriSayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED369E2BF4BF0D0096D119 /* NutriSayApp.swift */; };
 		E6ED36A12BF4BF0D0096D119 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED36A02BF4BF0D0096D119 /* ContentView.swift */; };
 		E6ED36A32BF4BF0E0096D119 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6ED36A22BF4BF0E0096D119 /* Assets.xcassets */; };
@@ -49,7 +49,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				E6ED369A2BF4BF0D0096D119 /* NutriSay Watch App.app in Embed Watch Content */,
+				E6ED369A2BF4BF0D0096D119 /* NutriSAY.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,12 +68,12 @@
 		E66633F82BF9F7C9007B4FB0 /* NutriSay Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NutriSay Watch App.entitlements"; sourceTree = "<group>"; };
 		E699D9672BFB0DB3004FB8DC /* MealHistoryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHistoryPage.swift; sourceTree = "<group>"; };
 		E6D0B1362BFCE116002800D1 /* GradientPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientPage.swift; sourceTree = "<group>"; };
-		E6ED36892BF4BF0A0096D119 /* NutriSay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriSay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6ED36892BF4BF0A0096D119 /* NutriSAY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriSAY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6ED368C2BF4BF0A0096D119 /* NutriSayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriSayApp.swift; sourceTree = "<group>"; };
 		E6ED368E2BF4BF0A0096D119 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E6ED36902BF4BF0D0096D119 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6ED36932BF4BF0D0096D119 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E6ED36992BF4BF0D0096D119 /* NutriSay Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NutriSay Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6ED36992BF4BF0D0096D119 /* NutriSAY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriSAY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6ED369E2BF4BF0D0096D119 /* NutriSayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriSayApp.swift; sourceTree = "<group>"; };
 		E6ED36A02BF4BF0D0096D119 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E6ED36A22BF4BF0E0096D119 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -161,8 +161,8 @@
 		E6ED368A2BF4BF0A0096D119 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E6ED36892BF4BF0A0096D119 /* NutriSay.app */,
-				E6ED36992BF4BF0D0096D119 /* NutriSay Watch App.app */,
+				E6ED36892BF4BF0A0096D119 /* NutriSAY.app */,
+				E6ED36992BF4BF0D0096D119 /* NutriSAY.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -214,9 +214,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E6ED36882BF4BF0A0096D119 /* NutriSay */ = {
+		E6ED36882BF4BF0A0096D119 /* NutriSAY */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E6ED36AD2BF4BF0E0096D119 /* Build configuration list for PBXNativeTarget "NutriSay" */;
+			buildConfigurationList = E6ED36AD2BF4BF0E0096D119 /* Build configuration list for PBXNativeTarget "NutriSAY" */;
 			buildPhases = (
 				E6ED36852BF4BF0A0096D119 /* Sources */,
 				E6ED36862BF4BF0A0096D119 /* Frameworks */,
@@ -228,17 +228,17 @@
 			dependencies = (
 				E6ED369C2BF4BF0D0096D119 /* PBXTargetDependency */,
 			);
-			name = NutriSay;
+			name = NutriSAY;
 			packageProductDependencies = (
 				E66633F12BF9EA50007B4FB0 /* Yams */,
 			);
 			productName = NutriSay;
-			productReference = E6ED36892BF4BF0A0096D119 /* NutriSay.app */;
+			productReference = E6ED36892BF4BF0A0096D119 /* NutriSAY.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E6ED36982BF4BF0D0096D119 /* NutriSay Watch App */ = {
+		E6ED36982BF4BF0D0096D119 /* NutriSAY Watch App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E6ED36A92BF4BF0E0096D119 /* Build configuration list for PBXNativeTarget "NutriSay Watch App" */;
+			buildConfigurationList = E6ED36A92BF4BF0E0096D119 /* Build configuration list for PBXNativeTarget "NutriSAY Watch App" */;
 			buildPhases = (
 				E6ED36952BF4BF0D0096D119 /* Sources */,
 				E6ED36962BF4BF0D0096D119 /* Frameworks */,
@@ -248,12 +248,12 @@
 			);
 			dependencies = (
 			);
-			name = "NutriSay Watch App";
+			name = "NutriSAY Watch App";
 			packageProductDependencies = (
 				E66633EF2BF9EA3E007B4FB0 /* Yams */,
 			);
 			productName = "NutriSay Watch App";
-			productReference = E6ED36992BF4BF0D0096D119 /* NutriSay Watch App.app */;
+			productReference = E6ED36992BF4BF0D0096D119 /* NutriSAY.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -274,7 +274,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E6ED36842BF4BF0A0096D119 /* Build configuration list for PBXProject "NutriSay" */;
+			buildConfigurationList = E6ED36842BF4BF0A0096D119 /* Build configuration list for PBXProject "NutriSAY" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -290,8 +290,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E6ED36882BF4BF0A0096D119 /* NutriSay */,
-				E6ED36982BF4BF0D0096D119 /* NutriSay Watch App */,
+				E6ED36882BF4BF0A0096D119 /* NutriSAY */,
+				E6ED36982BF4BF0D0096D119 /* NutriSAY Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -353,7 +353,7 @@
 /* Begin PBXTargetDependency section */
 		E6ED369C2BF4BF0D0096D119 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E6ED36982BF4BF0D0096D119 /* NutriSay Watch App */;
+			target = E6ED36982BF4BF0D0096D119 /* NutriSAY Watch App */;
 			targetProxy = E6ED369B2BF4BF0D0096D119 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -485,7 +485,6 @@
 				DEVELOPMENT_TEAM = J4KR4C3C23;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = NutriSay;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need access to read your nutrition data in app from HealthKit.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need access to sync your nutrition data in HealthKit.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -496,7 +495,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.bytebooster.NutriSay.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NutriSAY;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -518,7 +517,6 @@
 				DEVELOPMENT_TEAM = J4KR4C3C23;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = NutriSay;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need access to read your nutrition data in app from HealthKit.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need access to sync your nutrition data in HealthKit.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -529,7 +527,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.bytebooster.NutriSay.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NutriSAY;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -552,7 +550,7 @@
 				DEVELOPMENT_TEAM = J4KR4C3C23;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = NutriSay;
+				INFOPLIST_KEY_CFBundleDisplayName = NutriSAY;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -585,7 +583,7 @@
 				DEVELOPMENT_TEAM = J4KR4C3C23;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = NutriSay;
+				INFOPLIST_KEY_CFBundleDisplayName = NutriSAY;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -610,7 +608,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E6ED36842BF4BF0A0096D119 /* Build configuration list for PBXProject "NutriSay" */ = {
+		E6ED36842BF4BF0A0096D119 /* Build configuration list for PBXProject "NutriSAY" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E6ED36A72BF4BF0E0096D119 /* Debug */,
@@ -619,7 +617,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E6ED36A92BF4BF0E0096D119 /* Build configuration list for PBXNativeTarget "NutriSay Watch App" */ = {
+		E6ED36A92BF4BF0E0096D119 /* Build configuration list for PBXNativeTarget "NutriSAY Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E6ED36AA2BF4BF0E0096D119 /* Debug */,
@@ -628,7 +626,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E6ED36AD2BF4BF0E0096D119 /* Build configuration list for PBXNativeTarget "NutriSay" */ = {
+		E6ED36AD2BF4BF0E0096D119 /* Build configuration list for PBXNativeTarget "NutriSAY" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E6ED36AE2BF4BF0E0096D119 /* Debug */,

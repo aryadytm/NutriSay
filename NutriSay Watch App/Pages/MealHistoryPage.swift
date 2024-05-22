@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct MealHistoryPage: View {
+    
     @Query var meals: [Meal]
     
     var body: some View {
@@ -100,10 +101,15 @@ struct MealItem: View {
         
         return VStack(alignment: .leading, spacing: 4) {
             HStack {
-                Image(systemName: "square.fill")
-                    .resizable()
-                    .frame(width: 35, height: 35)
-                    .foregroundStyle(.green)
+                
+                ZStack {
+                    Image(systemName: "square.fill")
+                        .resizable()
+                        .frame(width: 35, height: 35)
+                        .foregroundStyle(.white.opacity(0.05))
+                    Text(meal.emoji)
+                        .scaleEffect(1.25)
+                }
  
                 VStack(alignment: .leading) {
                     HStack {
@@ -122,27 +128,31 @@ struct MealItem: View {
             HStack {
                 Image(systemName: "bolt.fill")
                     .foregroundStyle(.yellow)
+                    .scaleEffect(0.85)
                 Text("\(energyConsumed)")
-                    .font(.caption2)
+                    .font(.system(size: 13))
                     .foregroundColor(.primary)
                 Spacer()
+                
                 Image(systemName: "dumbbell.fill")
                     .foregroundStyle(.blue)
+                    .scaleEffect(0.85)
                 Text("\(protein)g")
-                    .font(.caption2)
+                    .font(.system(size: 13))
                     .foregroundColor(.primary)
                 Spacer()
+                
                 Image(systemName: "cube.fill")
                     .foregroundStyle(.purple)
+                    .scaleEffect(0.85)
                 Text("\(carbohydrates)g")
-                    .font(.caption2)
+                    .font(.system(size: 13))
                     .foregroundColor(.primary)
-
             }
 
         }
         .padding()
-        .background(Color(.white).opacity(0.1))
+        .background(Color(.white).opacity(0.08))
         .cornerRadius(8)
         .shadow(radius: 2)
     }

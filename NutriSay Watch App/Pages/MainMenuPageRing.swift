@@ -37,7 +37,7 @@ struct MainMenuPageRing: View {
                 Spacer()
                 
                 HStack {
-                    NavigationLink(destination: AddMealPage()) {
+                    NavigationLink(destination: AddMealPage(onUpdateMealDb: {})) {
                         ZStack {
                             Circle()
                                 .fill(Color.white.opacity(0.13))
